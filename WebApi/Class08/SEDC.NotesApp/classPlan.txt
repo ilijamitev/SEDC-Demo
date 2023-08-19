@@ -1,0 +1,37 @@
+
+##### INTRO #####
+
+	1. WHAT ARE ORMs ?
+	2. EntityFramework recap 
+		2.1. Cekorite za koristenje na bibliotekata (potrebnite paketi) + konfiguriranje na databaza + kreiranje na databaza + komunikacija na databaza
+		2.2. primeri so debagiranje koga se izvrsuvaat kverinjata vo baza posebno za READ posebno za WRITE akcii (.ToList(),.FirstOrDefault().... + _context.SaveChanges())
+		2.3. kade mozeme da gi pratime kverinjata koi se izvrsuvaat od nasata aplikacija
+			- Output window
+			- Sql Profiler (cisto za info deka postoi)
+	3. E sega ne sekogas postoel EF i postojat i drugi ORMs ...
+		- ADO.NET (vgradena .NET biblioteka)
+		- Dapper
+		- NHibernate (mehhh...)
+		- Django (not the movie) for Pyton etc...
+
+----------------------- PAUZA 10 min -----------------------
+
+##### ADO.NET #####
+
+	
+
+
+----------------------- PAUZA 10 min -----------------------
+
+
+##### DAPPER #####
+	
+	1. Instalacija na potrebnite paketi (ne se nisto poveke, dobivame klasi so odredeni funkcionalnosti i pozadinski kod koi ni pomagaat da napravime NESTO...)
+
+
+
+----------------------- PAUZA 10 min -----------------------
+
+### RECAP
+=> sporedba na trite ORMs (pros & cons)
+=> zavisno od potrebite, najcesto najzgodno e kombinacija od dve alatki....
