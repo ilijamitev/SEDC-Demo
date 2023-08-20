@@ -1,9 +1,6 @@
-﻿using SEDC.NotesApp.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dapper;
+using Microsoft.Data.SqlClient;
+using SEDC.NotesApp.Domain.Models;
 
 namespace SEDC.NotesApp.DataAccess.DapperImplementations
 {
@@ -16,29 +13,40 @@ namespace SEDC.NotesApp.DataAccess.DapperImplementations
             _connectionString = connectionString;
         }
 
-        public void Add(Note entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Note entity)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Note> GetAll()
         {
-            throw new NotImplementedException();
+            using SqlConnection dbConnection = new SqlConnection(_connectionString);
+            return dbConnection.Query<Note>("SELECT * FROM Notes").ToList();
         }
 
         public Note GetById(int id)
         {
-            throw new NotImplementedException();
+            using SqlConnection dbConnection = new SqlConnection(_connectionString);
+            string sql = "SELECT * FROM Notes WHERE Id = @Id";
+            return dbConnection.QueryFirstOrDefault<Note>(sql, new { Id = id });
+        }
+
+        public void Add(Note entity)
+        {
+            using SqlConnection dbConnection = new SqlConnection(_connectionString);
+            string sql = "INSERT INTO Notes (Text, Priority, Tag, UserId) " +
+                         "VALUES (@Text, @Priority, @Tag, @UserId)";
+            var rowsAffected = dbConnection.Execute(sql, entity);
         }
 
         public void Update(Note entity)
         {
-            throw new NotImplementedException();
+            using SqlConnection dbConnection = new SqlConnection(_connectionString);
+            string sql = "UPDATE Notes " +
+                         "SET Text = @Text, Priority = @Priority, Tag = @Tag, UserId = @UserId " +
+                         "WHERE Id = @Id";
+            dbConnection.Execute(sql, entity);
+        }
+
+        public void Delete(Note entity)
+        {
+            using SqlConnection dbConnection = new SqlConnection(_connectionString);
+            dbConnection.Execute("DELETE FROM Notes WHERE Id = @id", new { id = entity.Id });
         }
     }
 }

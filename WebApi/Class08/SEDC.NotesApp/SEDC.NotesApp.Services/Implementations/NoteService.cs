@@ -22,7 +22,7 @@ namespace SEDC.NotesApp.Services.Implementations
         {
             //1. validation
             User userDb = _userRepository.GetById(addNoteDto.UserId);
-            if(userDb == null)
+            if (userDb == null)
             {
                 throw new NoteDataException($"User with id {addNoteDto.UserId} does not exist");
             }
@@ -39,7 +39,7 @@ namespace SEDC.NotesApp.Services.Implementations
 
             //2. map to domain model
             Note newNote = addNoteDto.ToNote();
-            newNote.User = userDb;
+            //newNote.User = userDb;
 
             //3. add to db
             _noteRepository.Add(newNote);

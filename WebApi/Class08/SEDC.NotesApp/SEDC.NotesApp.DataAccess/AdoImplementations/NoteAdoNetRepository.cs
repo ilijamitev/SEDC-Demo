@@ -1,11 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using SEDC.NotesApp.Domain.Enums;
 using SEDC.NotesApp.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SEDC.NotesApp.DataAccess.AdoImplementations
 {
@@ -166,7 +161,7 @@ namespace SEDC.NotesApp.DataAccess.AdoImplementations
 
         public void Delete(Note entity)
         {
-            // NOTE: in real case scenario we don't perform HARD delete to records in our Database, instead we use SOFT delete (ex. set model's property IsDeleted to true)
+            // NOTE: in real case scenario we don't/rarely perform HARD delete to records in our Database, instead we use SOFT delete (ex. set model's property IsDeleted to true)
             // implementation for this method will be provided by the awesome students in G2 :)
             throw new NotImplementedException();
         }
