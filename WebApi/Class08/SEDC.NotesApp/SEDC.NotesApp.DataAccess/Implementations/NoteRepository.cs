@@ -26,9 +26,15 @@ namespace SEDC.NotesApp.DataAccess.Implementations
 
         public List<Note> GetAll()
         {
-            return _notesAppDbContext.Notes
-                .Include(x => x.User) //join Notes table with Users table
-                .ToList();
+            var query = _notesAppDbContext.Notes.Include(x => x.User);
+            var materilizedQuery = query.ToList(); // executes the query in the database and retrieves data
+            return materilizedQuery;
+            // executable methods in EF =>
+            // ToList(),FirstOrDefault(),SingleOrDefault(),Any(),OrderBy()... 
+
+            //return _notesAppDbContext.Notes
+            //   .Include(x => x.User) //join Notes table with Users table
+            //   .ToList();
         }
 
         public Note GetById(int id)

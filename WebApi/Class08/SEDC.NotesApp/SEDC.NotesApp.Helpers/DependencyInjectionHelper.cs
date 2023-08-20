@@ -27,9 +27,9 @@ namespace SEDC.NotesApp.Helpers
             // Use ADO.NET repository
             //services.AddTransient<IRepository<Note>>(s => new NoteAdoNetRepository(connectionString));
             // Use DAPPER repository
-            services.AddTransient<IRepository<Note>>(s => new NoteDapperRepository(connectionString));
+            //services.AddTransient<IRepository<Note>>(s => new NoteDapperRepository(connectionString));
 
-            //services.AddTransient<IRepository<Note>, NoteRepository>();
+            services.AddTransient<IRepository<Note>, NoteRepository>();
             services.AddTransient<IRepository<User>, UserRepository>();
         }
 
