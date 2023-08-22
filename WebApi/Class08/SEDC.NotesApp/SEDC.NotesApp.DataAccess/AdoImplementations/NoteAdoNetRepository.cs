@@ -16,7 +16,7 @@ namespace SEDC.NotesApp.DataAccess.AdoImplementations
         // 1. po implement interface => da gi preuredam metodite posebno READ posebno WRITE akcii
         // 2. Dependency Injection
 
-        // SqlConnection => used to establish connection to a database
+        // SqlConnection => used to establish connection to a database / begin transaction
         // SqlCommand => execute SQL queries, stored procedures, and other database commands
         // SqlDataReader => read data from a database
 
