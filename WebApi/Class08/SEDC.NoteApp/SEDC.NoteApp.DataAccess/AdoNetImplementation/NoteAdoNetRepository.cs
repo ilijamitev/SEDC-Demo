@@ -166,7 +166,7 @@ namespace SEDC.NoteApp.DataAccess.AdoNetImplementation
                 {
                     command.Parameters.AddWithValue("@Text", entity.Text);
                     command.Parameters.AddWithValue("@Priority", (int)entity.Priority);
-                    command.Parameters.AddWithValue("@TagId", entity.Tag);
+                    command.Parameters.AddWithValue("@Tag", entity.Tag);
                     command.Parameters.AddWithValue("@UserId", entity.UserId);
                     command.Parameters.AddWithValue("@NoteId", entity.Id);
 

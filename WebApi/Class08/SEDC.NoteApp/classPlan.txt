@@ -55,11 +55,11 @@
 ----------------------- PAUZA 10 min -----------------------
 
 ### RECAP
+=> sto vie bi koristele ?!?
 => sporedba na trite ORMs (pros & cons)
 => zavisno od potrebite, najcesto najzgodno e kombinacija od dve alatki....
 	pr. Dapper za READ, EF za WRITE
 	pr. EF + ADO.NET za optimiziranje na nekoi kverinja
-
 
 
 1. ADO.NET
