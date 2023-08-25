@@ -1,0 +1,57 @@
+﻿using Microsoft.EntityFrameworkCore;
+using SEDC.NoteApp.Domain.Models;
+
+namespace SEDC.NoteApp.DataAccess.EntityImplementation
+{
+    public class NoteRepository : IRepository<Note>
+    {
+        private readonly NoteAppDbContext _noteAppDbContext;
+        public NoteRepository(NoteAppDbContext noteAppDbContext)
+        {
+            _noteAppDbContext = noteAppDbContext;
+        }
+
+        public void Add(Note entity)
+        {
+            // debagiranje za add note prvo i koga ke se izvrsi kverito
+            _noteAppDbContext.Notes.Add(entity);
+            _noteAppDbContext.SaveChanges();
+        }
+
+        public void Delete(Note entity)
+        {
+            _noteAppDbContext.Notes.Remove(entity);
+            _noteAppDbContext.SaveChanges();
+        }
+
+        public List<Note> GetAll()
+        {
+            //return _noteAppDbContext.Notes
+            //            .Include(x => x.User)
+            //            .ToList();
+
+            // EF behind scenes
+            // form the query in C#
+            var query = _noteAppDbContext.Notes
+                        .Include(x => x.User); 
+            var queryTranslation = query.ToQueryString(); // way to check your LINQ to SQL translation
+            // with calling ToList() we translate our query into SQL query, execute the query in the database and retrive data
+            var materializedQuery = query.ToList(); 
+            // EntityFramework Executable methods: ToList(), FirstOrDefault(), Any(), SingleOrDefault(), Count()...
+            return materializedQuery;
+        }
+
+        public Note GetById(int id)
+        {
+            return _noteAppDbContext.Notes
+                        .Include(x => x.User)
+                        .SingleOrDefault(note => note.Id == id);
+        }
+
+        public void Update(Note entity)
+        {
+            _noteAppDbContext.Notes.Update(entity);
+            _noteAppDbContext.SaveChanges();
+        }
+    }
+}
