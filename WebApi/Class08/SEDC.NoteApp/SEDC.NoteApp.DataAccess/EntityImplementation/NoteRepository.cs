@@ -26,6 +26,7 @@ namespace SEDC.NoteApp.DataAccess.EntityImplementation
 
         public List<Note> GetAll()
         {
+            // DA GO RAZLOZIME KVERITO ZA DA SFATIME KAKO RABOTI EF
             //return _noteAppDbContext.Notes
             //            .Include(x => x.User)
             //            .ToList();
@@ -34,8 +35,8 @@ namespace SEDC.NoteApp.DataAccess.EntityImplementation
             // form the query in C#
             var query = _noteAppDbContext.Notes
                         .Include(x => x.User); 
-            var queryTranslation = query.ToQueryString(); // way to check your LINQ to SQL translation
-            // with calling ToList() we translate our query into SQL query, execute the query in the database and retrive data
+            var translatedQuery = query.ToQueryString(); // way to check your LINQ to SQL translation
+            // when calling ToList() our query is translated into SQL query => executed in the database => retrives data
             var materializedQuery = query.ToList(); 
             // EntityFramework Executable methods: ToList(), FirstOrDefault(), Any(), SingleOrDefault(), Count()...
             return materializedQuery;

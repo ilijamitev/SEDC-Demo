@@ -47,7 +47,7 @@ namespace SEDC.NoteApp.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Notes", (string)null);
+                    b.ToTable("Notes");
 
                     b.HasData(
                         new
@@ -86,7 +86,7 @@ namespace SEDC.NoteApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
 
                     b.HasData(
                         new

@@ -40,9 +40,12 @@ namespace SEDC.NoteApp.DataAccess.DapperImplementation
         public void Add(Note entity)
         {
             using SqlConnection dbConnection = new SqlConnection(_connectionString);
-            string sql = "INSERT INTO Notes (Text, Priority, Tag, UserId) " +
-                         "VALUES (@Text, @Priority, @Tag, @UserId)";
             //dbConnection.Insert(entity); // also available
+            //string sql = "INSERT INTO Notes (Text, Priority, Tag, UserId) " +
+            //             "VALUES (@Text, @Priority,@Tag, @UserId)";
+
+            // adding new note by calling a stored procedure
+            string sql = "EXEC SP_AddNote @Text, @Priority, @Tag, @UserId";
             var rowsAffected = dbConnection.Execute(sql, entity);
         }
 

@@ -2,17 +2,13 @@
 using Microsoft.Extensions.Configuration;
 using SEDC.NoteApp.Domain.Enums;
 using SEDC.NoteApp.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SEDC.NoteApp.DataAccess.AdoNetImplementation
 {
     // 1. po implement interface => da gi preuredam metodite posebno READ posebno WRITE akcii
     // 2. Dependency Injection da registriram
 
+    // vgraden ORM / biblioteka => so using na namespacot SqlClient
     // SqlConnection => used to establish connection to a database
     // SqlCommand => execute SQL queries, stored procedures, and other database commands
     // SqlDataReader => read data from a database
@@ -86,9 +82,6 @@ namespace SEDC.NoteApp.DataAccess.AdoNetImplementation
 
         public Note GetById(int id)
         {
-            // implementation for this method will be provided by the awesome students in G2 :)
-            //throw new NotImplementedException();
-
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();

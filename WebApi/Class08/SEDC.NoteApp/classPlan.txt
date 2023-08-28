@@ -4,7 +4,6 @@
 	=> GLAVNA TEMA ORMs
 	=> Ke napravime kratok RECAP na NoteApp, ke izdebagirame, ke se zadrzime posebno na EF. 
 		- Vie ne kucate
-		- Kako se gradi aplikacija, od kaj da pocnete ?
 		- pomosni alatki od Visual Studio itn.
 	=> Posle prodolzuvame so ORMs
 		- ke se potsetime sto bea toa ORMs
@@ -35,7 +34,7 @@
 		- NHibernate (mehhh...)
 		- Django (not the movie) for Pyton etc...
 
------------------------ PAUZA 10 min -----------------------
+----------------------- PAUZA 15 min -----------------------
 
 ##### ADO.NET #####
 
@@ -43,7 +42,7 @@
 	
 
 
------------------------ PAUZA 10 min -----------------------
+----------------------- PAUZA 15 min -----------------------
 
 
 ##### DAPPER #####
@@ -52,11 +51,11 @@
 
 
 
------------------------ PAUZA 10 min -----------------------
+##### RECAP #####
 
-### RECAP
 => sto vie bi koristele ?!?
 => sporedba na trite ORMs (pros & cons)
+=> primer Contains e mnogu skap metod i so EF ... ne dobro
 => zavisno od potrebite, najcesto najzgodno e kombinacija od dve alatki....
 	pr. Dapper za READ, EF za WRITE
 	pr. EF + ADO.NET za optimiziranje na nekoi kverinja
