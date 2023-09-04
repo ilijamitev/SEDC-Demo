@@ -10,7 +10,7 @@ namespace SEDC.NoteApp.DataAccess.Migrations
         {
             migrationBuilder.Sql(@"
                 CREATE PROCEDURE dbo.SP_AddNote
-                    @Text nvarchar(max),
+                    @Text nvarchar(100),
                     @Priority int,
                     @Tag int,
                     @UserId int

@@ -1,0 +1,53 @@
+
+########## CLASS OVERVIEW ##########
+
+
+
+
+
+
+########## INTRO ##########
+
+	1. Koga i za sto imate upotrebeno logiranje ?
+	2. Sto e logiranje ?
+	3. Nivoa na logiranje  (*Error*, *Information*, Warning, Debug)
+	4. Kade se moze da se logira ? => konzola, fajl, tabela vo baza
+	5. Defaulten (vgraden) loger example
+	6. Biblioteki za logiranje (Log4net, NLog, Serilog)
+
+########## SERILOG ##########
+
+1. Serilog 
+2. Setup za Serilog
+
+	2.1. Nuget Packages instalacija
+	2.2. Posebno serilog-config.json
+	2.3. Povrzuvanje na nasiot Configuration so serilog-config.json
+
+
+----------------------- PAUZA 15 min -----------------------
+
+
+3. Dodavanje logovi vo kod (Error & Information) ===> so *** TIPS ***
+4. Konfiguracija (po sablon) vo serilog-config.json
+	=> za vo konzola
+	=> txt fajl
+	=> json fajl
+	=> ako ima vreme tabela *************
+	=> ako ima vreme SEQ
+
+
+
+	
+
+
+----------------------- PAUZA 15 min -----------------------
+
+
+########## HttpClient (ConsoleApp) + Vanilla JS Client ##########
+	
+
+
+
+########## RECAP ##########
+
