@@ -29,7 +29,8 @@
 
 
 3. Dodavanje logovi vo kod (Error & Information) ===> so *** TIPS ***
-4. Konfiguracija (po sablon) vo serilog-config.json
+4. Serilog sinks
+5. Konfiguracija (po sablon) vo serilog-config.json
 	=> za vo konzola
 	=> txt fajl
 	=> json fajl
