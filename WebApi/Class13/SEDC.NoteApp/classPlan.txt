@@ -29,6 +29,14 @@
 
 
 3. Dodavanje logovi vo kod (Error & Information) ===> so *** TIPS ***
+	=> why not use string interpolation
+	=> descriptive messages
+	=> Log Important Application Events:
+		- application startup and shutdown, significant user actions, major data processing steps etc.
+	=> Log Errors and Exceptions:
+		- include relevant details about the error, such as the exception message, stack trace, and any relevant context
+	=> Avoid Excessive Logging
+
 4. Serilog sinks
 5. Konfiguracija (po sablon) vo serilog-config.json
 	=> za vo konzola
