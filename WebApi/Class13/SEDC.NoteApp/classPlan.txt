@@ -11,12 +11,12 @@
 	1. Koga i za sto imate upotrebeno logiranje ?
 	2. Sto e logiranje ?
 	3. Nivoa na logiranje  
-		1. Trace
-		2. Debug 
-		3. *Information*
-		4. Warning
-		5. *Error*
-		6. Fatal
+		1. Trace - lovest severity
+		2. Debug - for debugging purposes during development
+		3. *Information* - important insights into the application's behavior, such as startup and shutdown messages, significant application events, or successful operations
+		4. Warning - Indicates a potential issue that does not prevent the application from functioning but should be investigated
+		5. *Error* - Indicates a significant problem or error that needs attention
+		6. Fatal - The highest severity level. Application termination
 	4. Kade se moze da se logira ? => konzola, fajl, tabela vo baza
 	5. Defaulten (vgraden) loger example
 	6. Biblioteki za logiranje (Log4net, NLog, Serilog)
