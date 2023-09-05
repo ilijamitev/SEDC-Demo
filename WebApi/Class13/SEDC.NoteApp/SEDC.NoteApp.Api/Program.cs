@@ -35,6 +35,13 @@ var secretKeyFromAppSettings = builder.Configuration.GetSection("NoteAppSettings
 var noteAppSettings = builder.Configuration.GetSection("NoteAppSettings");
 var noteAppSettingsObject = noteAppSettings.Get<NoteAppSettings>();
 
+// Registering Serilog
+var serilogConfig = builder.Configuration.GetSection("Serilog");
+builder.Host.UseSerilog((context, confiq) =>
+{
+    confiq.ReadFrom.ConfigurationSection(serilogConfig);
+});
+
 // DEPENDENCY INJECTION
 // without extension method
 //DependencyInjectionHelper.InjectDbContext(builder.Services, cs);
@@ -76,6 +83,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseSerilogRequestLogging();  // Logs every request
 
 app.UseAuthentication();
 app.UseAuthorization();
