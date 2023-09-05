@@ -17,13 +17,18 @@
     // This section defines various Sinks (destinations) for log events, specifying where the log messages should be written.
     "WriteTo": [
       // Write in the Console
-      { "Name": "Console" },
+      { 
+        "Name": "Console",
+        "Args": {
+          "outputTemplate": "[{Timestamp:HH:mm:ss} {Level:u3}] {Message}{NewLine}{Exception}"
+        }
+      },
       // Write in Text file
       {
         "Name": "File",
         "Args": {
           "path": "./Logs/noteAppLogs.txt",
-          "outputTemplate": "{Timestamp:G} {Message}{NewLine:1}{Exception:1}"
+          "outputTemplate": "{Timestamp:G} {Level:u3} : {Message}{NewLine:1}{Exception:1}"
         }
       },
       // Structured logging in JSON file
