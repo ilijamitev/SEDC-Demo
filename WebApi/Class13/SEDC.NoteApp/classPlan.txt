@@ -10,7 +10,13 @@
 
 	1. Koga i za sto imate upotrebeno logiranje ?
 	2. Sto e logiranje ?
-	3. Nivoa na logiranje  (*Error*, *Information*, Warning, Debug)
+	3. Nivoa na logiranje  
+		1. Trace
+		2. Debug 
+		3. *Information*
+		4. Warning
+		5. *Error*
+		6. Fatal
 	4. Kade se moze da se logira ? => konzola, fajl, tabela vo baza
 	5. Defaulten (vgraden) loger example
 	6. Biblioteki za logiranje (Log4net, NLog, Serilog)
