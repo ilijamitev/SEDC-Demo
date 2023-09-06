@@ -1,9 +1,9 @@
 // Serilog Nuget packages
 // 1. Serilog.AspNetCore
 // 2. Serilog.Enrichers.Environment
-// 3. Serilog.Enrichers.Process ???
-// 4. Serilog.Enrichers.Thread ???
-// 5. Serilog.Settings.Configuration ???
+// 3. Serilog.Enrichers.Process 
+// 4. Serilog.Enrichers.Thread 
+// 5. Serilog.Settings.Configuration 
 // 6. Serilog.Sinks.MSSqlServer *
 // 7. Serilog.Sinks.Seq *
 
@@ -25,15 +25,15 @@
 
     // This section defines various Sinks (destinations) for log events, specifying where the log messages should be written.
     "WriteTo": [
-      
+
       // Write in the Console
-      { 
+      {
         "Name": "Console",
         "Args": {
           "outputTemplate": "[{Timestamp:HH:mm:ss} {Level:u3}] {Message}{NewLine}{Exception}"
         }
       },
-      
+
       // Write in Text file
       {
         "Name": "File",
@@ -42,7 +42,7 @@
           "outputTemplate": "{Timestamp:G} {Level:u3} : {Message}{NewLine:1}{Exception:1}"
         }
       },
-      
+
       // Structured logging in JSON file
       {
         "Name": "File",
@@ -51,21 +51,21 @@
           "formatter": "Serilog.Formatting.Json.JsonFormatter, Serilog"
         }
       },
-      
-      // Log messages to a SQL Server database table
+
+      // Log messages to a SQL Server database table (BONUS)
       {
-       "Name": "MSSqlServer",
-       "Args": {
-         "connectionString": "your_connection_string_here",
-         "sinkOptionsSection": {
-           "tableName": "Logs", // Specify the table name for log entries
-           "autoCreateSqlTable": true // Automatically create the table if it doesn't exist
-         },
-         "restrictedToMinimumLevel": "Information" 
-       }
+        "Name": "MSSqlServer",
+        "Args": {
+          "connectionString": "Server=.\\SQLEXPRESS;Database=NoteAppDb;Trusted_Connection=True;Encrypt=False",
+          "sinkOptionsSection": {
+            "tableName": "Logs", // Specify the table name for log entries
+            "autoCreateSqlTable": true // Automatically create the table if it doesn't exist
+          },
+          "restrictedToMinimumLevel": "Information"
+        }
       },
-      
-      // Structured logging using Seq (BONUS)
+
+      // Structured logging using Seq (BONUS) | NOTE: you first need to download Seq on you machines
       {
         "Name": "Seq",
         "Args": {

@@ -44,6 +44,7 @@
 	=> Avoid Excessive Logging
 
 4. Serilog sinks
+
 5. Konfiguracija (po sablon) vo serilog-config.json
 	=> za vo konzola
 	=> txt fajl

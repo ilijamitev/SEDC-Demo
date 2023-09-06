@@ -9,6 +9,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using SEDC.NoteApp.Helpers;
+using Serilog;
+using Serilog.Events;
+using Serilog.Sinks.MSSqlServer;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,10 +25,29 @@ builder.Services.AddSwaggerGen();
 
 // Binding our multiple configurations
 builder.Configuration
-    .AddJsonFile(path: "appsettings.json", optional: false, reloadOnChange: true) // it's binded to Configuration by default
-    .AddJsonFile(path: "serilog-config.json", optional: false, reloadOnChange: true); // we manually add our custom setting files to the configuration
+    // appsettings.json it's binded to Configuration by default
+    .AddJsonFile(path: "appsettings.json", optional: false, reloadOnChange: true) 
+    // we manually add our custom setting files to the configuration
+    .AddJsonFile(path: "serilog-config.json", optional: false, reloadOnChange: true)
+    .Build();
 
 var cs = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Registering Serilog
+//var serilogConfig = builder.Configuration.GetSection("Serilog");
+builder.Host.UseSerilog((context, confiq) =>
+{
+    confiq.ReadFrom.Configuration(context.Configuration);
+    // we can also add the whole configuration here...
+    //confiq.ReadFrom.Configuration(context.Configuration)
+    //      .WriteTo.MSSqlServer(connectionString: cs,
+    //        sinkOptions: new MSSqlServerSinkOptions
+    //        {
+    //            TableName = "Logs",
+    //            AutoCreateSqlTable = true,
+    //        });
+});
+
 
 //Ways to get values from AppSettings (OLD WAY)
 var sectionValue = builder.Configuration.GetSection("RandomSection").Value;
@@ -34,13 +56,6 @@ var secretKeyFromAppSettings = builder.Configuration.GetSection("NoteAppSettings
 //Ways to get values from AppSettings (NEW WAY)
 var noteAppSettings = builder.Configuration.GetSection("NoteAppSettings");
 var noteAppSettingsObject = noteAppSettings.Get<NoteAppSettings>();
-
-// Registering Serilog
-var serilogConfig = builder.Configuration.GetSection("Serilog");
-builder.Host.UseSerilog((context, confiq) =>
-{
-    confiq.ReadFrom.ConfigurationSection(serilogConfig);
-});
 
 // DEPENDENCY INJECTION
 // without extension method
@@ -72,8 +87,12 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// Adding CORS
+builder.Services.AddCors(options => options.AddPolicy("myPolicy", policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 
 var app = builder.Build();
+
+app.UseCors("myPolicy");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

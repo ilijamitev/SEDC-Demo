@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SEDC.NoteApp.CustomExceptions;
 using SEDC.NoteApp.DTOs;
 using SEDC.NoteApp.Services.Abstraction;
+using XAct;
 
 namespace SEDC.NoteApp.Api.Controllers
 {
@@ -44,7 +45,7 @@ namespace SEDC.NoteApp.Api.Controllers
             try
             {
                 var token = _userService.LoginUser(loginUserDto);
-                return Ok(token);
+                return Ok(new { token });
             }
             catch (UserDataException ex)
             {

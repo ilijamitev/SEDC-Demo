@@ -1,3 +1,8 @@
+// import { LoginRequest, NotesDto } from "./models.js";
+
+const baseUrl = "https://localhost:7071/api";
+const loginForm = document.getElementById("loginForm");
+const notesMenu = document.getElementById("notesMenu");
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const usernameError = document.getElementById("usernameError");
@@ -46,16 +51,32 @@ submitBtn.addEventListener("mouseover", () => {
     }
 })
 
-submitBtn.addEventListener("click", (e) => {
-    e.preventDefault(); 
+submitBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
 
     const username = usernameInput.value;
     const password = passwordInput.value;
 
-    usernameError.textContent = "";
-    passwordError.textContent = "";
+    if (!username || !password) {
+        return;
+    }
 
-    if (username && password) {
-        alert("Login successful!"); // For demonstration purposes
+    const loginDto = new LoginRequest(username, password)
+    const response = await fetch(`${baseUrl}/Users/login`, {
+        method: "POST",
+        body: JSON.stringify(loginDto),
+        headers: {
+            "Content-Type": "text/json"
+        }
+    })
+
+    if (response.ok) {
+        const result = await response.json();
+        if (result?.token) {
+            localStorage.setItem("token", result.token)
+        }
+        // call function to show Note Menu
     }
 });
+
+

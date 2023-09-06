@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SEDC.NoteApp.CustomExceptions;
 using SEDC.NoteApp.DTOs;
 using SEDC.NoteApp.Services.Abstraction;
+using Serilog;
 using System.Security.Claims;
 
 namespace SEDC.NoteApp.Api.Controllers
@@ -27,7 +28,8 @@ namespace SEDC.NoteApp.Api.Controllers
         {
             try
             {
-                _logger.LogInformation("User is requesting data");
+                //_logger.LogInformation("User is requesting data");
+                Log.Information("User is requesting data");
                 var userId = User.FindFirstValue("userId");
                 var username = User.FindFirstValue(ClaimTypes.Name);
 
@@ -35,7 +37,8 @@ namespace SEDC.NoteApp.Api.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong: {ex.Message}");
+                //_logger.LogError($"Something went wrong: {ex.Message}");
+                Log.Error($"Something went wrong: {ex.Message}");
                 return StatusCode(500, "System error occurred, contact admin!");
             }
         }

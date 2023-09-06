@@ -8,6 +8,7 @@ using SEDC.NoteApp.Services.Abstraction;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using XAct;
 
 namespace SEDC.NoteApp.Services.Implementation
 {
@@ -54,7 +55,7 @@ namespace SEDC.NoteApp.Services.Implementation
                     }
                 )
             };
-
+            
             SecurityToken token = jwtSecurityTokenHandler.CreateToken(securityTokenDescriptor);
             return jwtSecurityTokenHandler.WriteToken(token);
         }

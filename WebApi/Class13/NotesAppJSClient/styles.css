@@ -7,11 +7,11 @@ h1 {
 }
 
 .move-right {
-    transform: translateX(100px); 
-    transition: transform 0.01s ease-out; 
+    transform: translateX(100px);
+    transition: transform 0.01s ease-out;
 }
 
 .move-left {
-    transform: translateX(-100px); 
-    transition: transform 0.01s ease-out; 
+    transform: translateX(-100px);
+    transition: transform 0.01s ease-out;
 }
