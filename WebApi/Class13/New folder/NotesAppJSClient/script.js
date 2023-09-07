@@ -1,0 +1,156 @@
+import { LoginRequest, PriorityEnum, TagEnum } from "./models.js"; // in order for this to work you need to start the web page with Live Server
+
+// DEFINING VARIABLES
+
+const baseUrl = "https://localhost:7071/api";
+
+const loginMenu = document.getElementById("loginMenu");
+const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
+const usernameError = document.getElementById("usernameError");
+const passwordError = document.getElementById("passwordError");
+const loginError = document.getElementById("loginError");
+const submitBtn = document.getElementById("submit");
+
+const notesMenu = document.getElementById("notesMenu");
+const getNotesBtn = document.getElementById("loadNotesButton");
+const notesContainer = document.getElementById("notesContainer");
+
+let btnHoverToggle = true;
+
+
+// DEFINING EVENTS
+
+usernameInput.addEventListener("input", () => {
+    usernameError.textContent = "";
+    loginError.textContent = "";
+})
+
+passwordInput.addEventListener("input", () => {
+    passwordError.textContent = "";
+    loginError.textContent = "";
+})
+
+submitBtn.addEventListener("mouseover", validateCredentials)
+
+submitBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    if (!username || !password) {
+        return;
+    }
+
+    const loginDto = new LoginRequest(username, password)
+
+    const response = await fetch(`${baseUrl}/Users/login`, {
+        method: "POST",
+        body: JSON.stringify(loginDto),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    if (response.ok) {
+        const result = await response.json();
+        if (result?.token) {
+            localStorage.setItem("token", result.token)
+        }
+        showNotesMenu();
+        return;
+    }
+    loginError.textContent = "Invalid credentials!";
+});
+
+getNotesBtn.addEventListener("click", (e) => {
+
+});
+
+
+// DEFINING FUNCTIONS
+
+function validateCredentials(e) {
+    e.preventDefault();
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    usernameError.textContent = "";
+    passwordError.textContent = "";
+
+    if (!username) {
+        usernameError.textContent = "Please enter a username.";
+    }
+
+    if (!password) {
+        passwordError.textContent = "Please enter a password.";
+    }
+
+    if (!username || !password) {
+        if (btnHoverToggle) {
+            submitBtn.classList.remove("move-left");
+            submitBtn.classList.add("move-right");
+            btnHoverToggle = false;
+        }
+        else {
+            submitBtn.classList.remove("move-right");
+            submitBtn.classList.add("move-left");
+            btnHoverToggle = true;
+        }
+    }
+    else {
+        submitBtn.classList.remove("move-left");
+        submitBtn.classList.remove("move-right");
+    }
+}
+
+function showNotesMenu() {
+    loginMenu.setAttribute("hidden", "hidden");
+    notesMenu.removeAttribute("hidden");
+}
+
+async function getNotes() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+        return;
+    }
+    const response = await fetch(`${baseUrl}/Notes`, { // /get
+        method: "GET",
+        body: JSON.stringify(loginDto),
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    })
+
+    if (response.ok) {
+        const data = await response.json();
+        notesContainer.innerHTML = "";
+        if (!data) {
+            notesContainer.innerHTML = `<div class="text-warning text-center">No notes available !</div>`;
+            return;
+        }
+        for (const note of data) {
+            notesContainer.insertAdjacentHTML("beforeend", createNoteCardHtml(note))
+        }
+    }
+  
+}
+
+function createNoteCardHtml(note) {
+    return `
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p>Text: ${note.Text}</p>
+                    <p>Priority: ${PriorityEnum[note.Priority]}</p>
+                    <p>Priority: ${note.Priority}</p>
+                    <p>Tag: ${TagEnum[note.Tag]}</p>
+                    <p>Tag: ${note.Tag}</p>
+                    <p>User: ${note.UserFullName}</p>
+                </div>
+            </div>
+        </div>
+    `;
+}
