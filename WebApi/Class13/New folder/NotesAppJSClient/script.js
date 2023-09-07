@@ -10,7 +10,7 @@ const passwordInput = document.getElementById("password");
 const usernameError = document.getElementById("usernameError");
 const passwordError = document.getElementById("passwordError");
 const loginError = document.getElementById("loginError");
-const submitBtn = document.getElementById("submit");
+const loginBtn = document.getElementById("loginBtn");
 
 const notesMenu = document.getElementById("notesMenu");
 const getNotesBtn = document.getElementById("getNotesBtn");
@@ -29,9 +29,9 @@ passwordInput.addEventListener("input", () => {
     loginError.textContent = "";
 })
 
-submitBtn.addEventListener("mouseover", validateCredentials)
+loginBtn.addEventListener("mouseover", validateCredentials)
 
-submitBtn.addEventListener("click", async (e) => {
+loginBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
     const username = usernameInput.value;
@@ -62,10 +62,7 @@ submitBtn.addEventListener("click", async (e) => {
     loginError.textContent = "Invalid credentials!";
 });
 
-getNotesBtn.addEventListener("click", (e) => {
-
-});
-
+getNotesBtn.addEventListener("click", getNotes);
 
 // DEFINING FUNCTIONS
 
@@ -87,19 +84,19 @@ function validateCredentials(e) {
 
     if (!username || !password) {
         if (btnHoverToggle) {
-            submitBtn.classList.remove("move-left");
-            submitBtn.classList.add("move-right");
+            loginBtn.classList.remove("move-left");
+            loginBtn.classList.add("move-right");
             btnHoverToggle = false;
         }
         else {
-            submitBtn.classList.remove("move-right");
-            submitBtn.classList.add("move-left");
+            loginBtn.classList.remove("move-right");
+            loginBtn.classList.add("move-left");
             btnHoverToggle = true;
         }
     }
     else {
-        submitBtn.classList.remove("move-left");
-        submitBtn.classList.remove("move-right");
+        loginBtn.classList.remove("move-left");
+        loginBtn.classList.remove("move-right");
     }
 }
 
