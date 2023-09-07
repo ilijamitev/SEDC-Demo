@@ -14,10 +14,8 @@ const submitBtn = document.getElementById("submit");
 
 const notesMenu = document.getElementById("notesMenu");
 const getNotesBtn = document.getElementById("loadNotesButton");
-const notesContainer = document.getElementById("notesContainer");
 
 let btnHoverToggle = true;
-
 
 // DEFINING EVENTS
 
@@ -126,16 +124,20 @@ async function getNotes() {
 
     if (response.ok) {
         const data = await response.json();
-        notesContainer.innerHTML = "";
-        if (!data) {
-            notesContainer.innerHTML = `<div class="text-warning text-center">No notes available !</div>`;
-            return;
-        }
-        for (const note of data) {
-            notesContainer.insertAdjacentHTML("beforeend", createNoteCardHtml(note))
-        }
+        renderNotes(data);
     }
-  
+}
+
+function renderNotes(notes) {
+    const notesContainer = document.getElementById("notesContainer");
+    notesContainer.innerHTML = "";
+    if (!notes) {
+        notesContainer.innerHTML = `<div class="text-warning text-center">No notes available !</div>`;
+        return;
+    }
+    for (const note of notes) {
+        notesContainer.insertAdjacentHTML("beforeend", createNoteCardHtml(note))
+    }
 }
 
 function createNoteCardHtml(note) {
