@@ -110,7 +110,6 @@ async function getNotes() {
     }
     const response = await fetch(`${baseUrl}/Notes`, { // /get
         method: "GET",
-        body: JSON.stringify(loginDto),
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
