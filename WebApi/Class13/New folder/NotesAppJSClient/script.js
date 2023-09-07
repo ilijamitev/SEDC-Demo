@@ -34,32 +34,6 @@ loginBtn.addEventListener("mouseover", validateCredentials)
 loginBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    const username = usernameInput.value;
-    const password = passwordInput.value;
-
-    if (!username || !password) {
-        return;
-    }
-
-    const loginDto = new LoginRequest(username, password)
-
-    const response = await fetch(`${baseUrl}/Users/login`, {
-        method: "POST",
-        body: JSON.stringify(loginDto),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-
-    if (response.ok) {
-        const result = await response.json();
-        if (result?.token) {
-            localStorage.setItem("token", result.token)
-        }
-        showNotesMenu();
-        return;
-    }
-    loginError.textContent = "Invalid credentials!";
 });
 
 getNotesBtn.addEventListener("click", getNotes);
@@ -98,6 +72,35 @@ function validateCredentials(e) {
         loginBtn.classList.remove("move-left");
         loginBtn.classList.remove("move-right");
     }
+}
+
+async function loginUser(){
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+    
+    if (!username || !password) {
+        return;
+    }
+
+    const loginDto = new LoginRequest(username, password)
+
+    const response = await fetch(`${baseUrl}/Users/login`, {
+        method: "POST",
+        body: JSON.stringify(loginDto),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    if (!response.ok) {
+        loginError.textContent = "Invalid credentials!";
+        return;
+    }
+    const result = await response.json();
+    if (result?.token) {
+        localStorage.setItem("token", result.token)
+    }
+    showNotesMenu();
 }
 
 function showNotesMenu() {
