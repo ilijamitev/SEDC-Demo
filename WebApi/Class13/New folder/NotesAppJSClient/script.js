@@ -13,7 +13,7 @@ const loginError = document.getElementById("loginError");
 const submitBtn = document.getElementById("submit");
 
 const notesMenu = document.getElementById("notesMenu");
-const getNotesBtn = document.getElementById("loadNotesButton");
+const getNotesBtn = document.getElementById("getNotesBtn");
 
 let btnHoverToggle = true;
 
