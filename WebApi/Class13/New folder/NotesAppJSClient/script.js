@@ -30,12 +30,7 @@ passwordInput.addEventListener("input", () => {
 })
 
 loginBtn.addEventListener("mouseover", validateCredentials)
-
-loginBtn.addEventListener("click", async (e) => {
-    e.preventDefault();
-
-});
-
+loginBtn.addEventListener("click", loginUser);
 getNotesBtn.addEventListener("click", getNotes);
 
 // DEFINING FUNCTIONS
