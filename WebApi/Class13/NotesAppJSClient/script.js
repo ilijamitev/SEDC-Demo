@@ -69,24 +69,24 @@ function validateCredentials(e) {
     }
 }
 
-async function loginUser(){
+async function loginUser(e) {
+    e.preventDefault();
     const username = usernameInput.value;
     const password = passwordInput.value;
-    
+
     if (!username || !password) {
         return;
     }
 
     const loginDto = new LoginRequest(username, password)
-
+    // MOZEBI OVA DA GO KUCNEME ZAEDNO AKO IMA VREME
     const response = await fetch(`${baseUrl}/Users/login`, {
         method: "POST",
-        body: JSON.stringify(loginDto),
         headers: {
             "Content-Type": "application/json"
-        }
+        },
+        body: JSON.stringify(loginDto)
     })
-
     if (!response.ok) {
         loginError.textContent = "Invalid credentials!";
         return;
@@ -103,12 +103,15 @@ function showNotesMenu() {
     notesMenu.removeAttribute("hidden");
 }
 
-async function getNotes() {
+async function getNotes(e) {
+    e.preventDefault();
     const token = localStorage.getItem("token");
     if (!token) {
         return;
     }
-    const response = await fetch(`${baseUrl}/Notes`, { // /get
+
+    // MOZEBI OVA DA GO KUCNEME ZAEDNO AKO IMA VREME
+    const response = await fetch(`${baseUrl}/Notes`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -125,8 +128,8 @@ async function getNotes() {
 function renderNotes(notes) {
     const notesContainer = document.getElementById("notesContainer");
     notesContainer.innerHTML = "";
-    if (!notes) {
-        notesContainer.innerHTML = `<div class="text-warning text-center">No notes available !</div>`;
+    if (!notes?.length) {
+        notesContainer.innerHTML = `<div class="text-danger text-center">No notes available !</div>`;
         return;
     }
     for (const note of notes) {
@@ -139,12 +142,10 @@ function createNoteCardHtml(note) {
         <div class="col-md-4">
             <div class="card mb-3">
                 <div class="card-body">
-                    <p>Text: ${note.Text}</p>
-                    <p>Priority: ${PriorityEnum[note.Priority]}</p>
-                    <p>Priority: ${note.Priority}</p>
-                    <p>Tag: ${TagEnum[note.Tag]}</p>
-                    <p>Tag: ${note.Tag}</p>
-                    <p>User: ${note.UserFullName}</p>
+                    <p>Text: ${note.text}</p>
+                    <p>Priority: ${PriorityEnum[note.priority]}</p>
+                    <p>Tag: ${TagEnum[note.tag]}</p>
+                    <p>User: ${note.userFullName}</p>
                 </div>
             </div>
         </div>

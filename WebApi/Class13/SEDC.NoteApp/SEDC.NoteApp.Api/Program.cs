@@ -31,10 +31,10 @@ builder.Configuration
     .AddJsonFile(path: "serilog-config.json", optional: false, reloadOnChange: true)
     .Build();
 
+//var serilogConfig = builder.Configuration.GetSection("Serilog");
 var cs = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // Registering Serilog
-//var serilogConfig = builder.Configuration.GetSection("Serilog");
 builder.Host.UseSerilog((context, confiq) =>
 {
     confiq.ReadFrom.Configuration(context.Configuration);
@@ -102,7 +102,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseSerilogRequestLogging();  // Logs every request
+//app.UseSerilogRequestLogging();  // Logs every request
 
 app.UseAuthentication();
 app.UseAuthorization();

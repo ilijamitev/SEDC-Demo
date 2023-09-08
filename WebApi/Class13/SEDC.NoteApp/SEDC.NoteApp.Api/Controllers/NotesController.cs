@@ -8,7 +8,7 @@ using System.Security.Claims;
 
 namespace SEDC.NoteApp.Api.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class NotesController : ControllerBase

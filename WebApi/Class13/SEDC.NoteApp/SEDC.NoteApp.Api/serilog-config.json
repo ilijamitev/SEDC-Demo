@@ -65,7 +65,7 @@
         }
       },
 
-      // Structured logging using Seq (BONUS) | NOTE: you first need to download Seq on you machines
+      // Structured logging using Seq (BONUS) | NOTE: you first need to download and set Seq on your machine
       {
         "Name": "Seq",
         "Args": {
