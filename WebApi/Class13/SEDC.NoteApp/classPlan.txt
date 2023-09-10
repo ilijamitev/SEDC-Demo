@@ -1,17 +1,24 @@
 
 ########## CLASS OVERVIEW ##########
 
+===> Recap:
+1. Sto ima nejasno od prethodniot cas, t.e. casot za Unit Testing ?
+2. Najbitno da se zapamti
+	=> sto e Unit testing (testiranje na 1 unit/1 servisna metoda)
+	=> kako se pisuvaat unit testovi Arrange / Act / Assert
+	=> koi scenarija da se opfatat (sto e mozno poveke)
 
+===> Za denes:
+1. Logiranje
+2. Komunikacija na konzola klient i JS klient so naseto api
+3. Simulacija na intervju (ako sakate !?)
 
-
-
-
-########## INTRO ##########
+#################### INTRO ####################
 
 	1. Koga i za sto imate upotrebeno logiranje ?
 	2. Sto e logiranje ?
 	3. Nivoa na logiranje  
-		1. Trace - lovest severity
+		1. Trace - lowest severity
 		2. Debug - for debugging purposes during development
 		3. *Information* - important insights into the application's behavior, such as startup and shutdown messages, significant application events, or successful operations
 		4. Warning - Indicates a potential issue that does not prevent the application from functioning but should be investigated
@@ -21,7 +28,7 @@
 	5. Defaulten (vgraden) loger example
 	6. Biblioteki za logiranje (Log4net, NLog, Serilog)
 
-########## SERILOG ##########
+#################### SERILOG ####################
 
 1. Serilog 
 2. Setup za Serilog
@@ -29,6 +36,8 @@
 	2.1. Nuget Packages instalacija
 	2.2. Posebno serilog-config.json
 	2.3. Povrzuvanje na nasiot Configuration so serilog-config.json
+
+3. Serilog sinks => destinations for log events
 
 
 ----------------------- PAUZA 15 min -----------------------
@@ -43,26 +52,14 @@
 		- include relevant details about the error, such as the exception message, stack trace, and any relevant context
 	=> Avoid Excessive Logging
 
-4. Serilog sinks
-
-5. Konfiguracija (po sablon) vo serilog-config.json
-	=> za vo konzola
-	=> txt fajl
-	=> json fajl
-	=> ako ima vreme tabela *************
-	=> ako ima vreme SEQ
-
-
-
-	
-
 
 ----------------------- PAUZA 15 min -----------------------
 
 
-########## HttpClient (ConsoleApp) + Vanilla JS Client ##########
+#################### HttpClient (ConsoleApp) + Vanilla JS Client ####################
 	
 
+############################## SORSIX TECHNICAL INTERVIEW EXAMPLE ##############################
 
 
 ########## RECAP ##########

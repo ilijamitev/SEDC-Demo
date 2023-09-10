@@ -28,10 +28,7 @@
 
       // Write in the Console
       {
-        "Name": "Console",
-        "Args": {
-          "outputTemplate": "[{Timestamp:HH:mm:ss} {Level:u3}] {Message}{NewLine}{Exception}"
-        }
+        "Name": "Console"
       },
 
       // Write in Text file
@@ -39,11 +36,11 @@
         "Name": "File",
         "Args": {
           "path": "./Logs/noteAppLogs.txt",
-          "outputTemplate": "{Timestamp:G} {Level:u3} : {Message}{NewLine:1}{Exception:1}"
+          "outputTemplate": "[{Timestamp:G} {Level:u3}] : {Message}{NewLine:1}{Exception:1}"
         }
       },
 
-      // Structured logging in JSON file
+      // Structured logging in a JSON file
       {
         "Name": "File",
         "Args": {
@@ -65,7 +62,7 @@
         }
       },
 
-      // Structured logging using Seq (BONUS) | NOTE: you first need to download and set Seq on your machine
+      // Structured logging using Seq (BONUS) | NOTE: you first need to download and configure Seq on your machine
       {
         "Name": "Seq",
         "Args": {
