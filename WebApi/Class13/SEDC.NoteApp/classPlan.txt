@@ -17,6 +17,7 @@
 
 	1. Koga i za sto imate upotrebeno logiranje ?
 	2. Sto e logiranje ?
+		=> del od kodot koj ni ovozmozuva trakiranje na rabotenjeto na nasata aplikacija
 	3. Nivoa na logiranje  
 		1. Trace - lowest severity
 		2. Debug - for debugging purposes during development
