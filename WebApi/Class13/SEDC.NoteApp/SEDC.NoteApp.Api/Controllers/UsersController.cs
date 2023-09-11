@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SEDC.NoteApp.CustomExceptions;
 using SEDC.NoteApp.DTOs;
 using SEDC.NoteApp.Services.Abstraction;
 using Serilog;
-using XAct;
 
 namespace SEDC.NoteApp.Api.Controllers
 {

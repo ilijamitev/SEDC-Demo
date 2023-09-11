@@ -28,7 +28,6 @@ namespace SEDC.NoteApp.Api.Controllers
         {
             try
             {
-                //_logger.LogInformation("User is requesting data");
                 Log.Information("User is requesting data");
                 var userId = User.FindFirstValue("userId");
                 var username = User.FindFirstValue(ClaimTypes.Name);

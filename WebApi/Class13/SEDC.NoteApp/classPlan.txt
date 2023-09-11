@@ -17,7 +17,7 @@
 
 	1. Koga i za sto imate upotrebeno logiranje ?
 	2. Sto e logiranje ?
-		=> del od kodot koj ni ovozmozuva trakiranje na rabotenjeto na nasata aplikacija
+		=> del od kodot koj ni ovozmozuva kontinuirano sledenje na rabotenjeto na nasata aplikacija
 	3. Nivoa na logiranje  
 		1. Trace - lowest severity
 		2. Debug - for debugging purposes during development
@@ -26,7 +26,7 @@
 		5. *Error* - Indicates a significant problem or error that needs attention
 		6. Fatal - The highest severity level. Application termination
 	4. Kade se moze da se logira ? => konzola, fajl, tabela vo baza
-	5. Defaulten (vgraden) loger example
+	5. Defaulten (vgraden) loger
 	6. Biblioteki za logiranje (Log4net, NLog, Serilog)
 
 #################### SERILOG ####################
