@@ -1,0 +1,37 @@
+1. Introduction
+	=> uste ednas da se pretstavam
+	=> sovet od akademija (mnogu ucenje)
+
+2. Subject Overview
+	=> site predmeti sto se Advanced se mozebi najpredizvikuvacki
+	=> MORA DA SE ODRZUVA KONTINUITET VO UCENJETO
+	=> vo sustina ke bide istoto od basic samo prosireno i so pogolem scale t.e. kompleksnost, no ke ima i novi raboti sekako...
+
+3. BasicJS Recap
+	=> Sto ne im e jasno na sto da se zadrzime poveke ?!?!
+3.1. Arrays and Loops Examples
+3.2. Functions Examples
+
+============== EXERCISE (1) ==============
+###################################################################################
+###################################################################################
+
+
+|========================= CLASS 02 =========================|
+
+3.3. Objects Examples
+	- document object
+	- window (global) object
+	- this keyword
+
+3.4. DOM Examples
+	- addEventListener => so anonimna funkcija + so referenca + so referenca i ()*  ("click", handleClickFunc())
+	- anonimna funkcija kaj addEventListener + event kako parametar vo anonimnata + event.target
+
+=========== EXERCISE (2) ===========
+=========== EXERCISE (3) ===========
+- PRISTAPOT NA RESAVANJE NA PROBLEM !!!
+
+
+4. Exercises
+	

@@ -1,0 +1,58 @@
+0. Na pocetok da go pusnam samo baranjeto pa da gi dodadam drugite raboti vo folderot od cas
+
+1. Recap prosli cas
+    1.1. Arrow functions !!! (najbitni za ovoj moment)
+    - fetch so => arrow function
+    - addEventListener so arrow function
+	1.2. Self-invoked functions (Immediately-invoked functions) => primer: odma da napravi povik do nekoe api i da prikaze podatoci
+    1.3. Recursion / Recursive functions !!! (imajte gi na um, dosta korisni)
+    1.4. Hoisting => globally declared functions (with function keyword) are available everywhere in the code as they become part of the GLOBAL (WINDOW) object
+
+2. DOMASNI OVERVIEW
+    2.0. Dali e jasen feedbackot sto go dobivate, slobodno prasuvajte sto i da ima
+	2.1. HTML tabeli !!!
+	2.2. validacija na inputi i reset na inputi
+	2.3. catch error (deka nema sekogas error.status ili error.responseText)
+
+    fetch("https://swapi.dev/api/people/1")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (response) {
+            console.log("call successful");
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log("The request has failed: " + error.status);
+            console.log(error.responseText);
+        });
+
+###############################################################################
+
+3. WORKSHOP INTRO
+    3.1. Celta na Workshop casovite
+    - razvivanje na developerski mindset
+    - ucenje na pristapot kon resavanje na nekoj problem
+    - glavniot fokus e vie da ja razvivate vestinata za izrabotka na odreden task
+    3.2. Ke gradime nasa aplikacija posvetena na StarWars
+    3.3. Da go procitame Baranjeto !!!
+
+4. Q: KOJ E VASIOT SLEDEN CEKOR OTKAKO STE GO PROCITALE BARANJETO ???
+
+5. Development Lifecycle
+    5.1. Ova e sustinskata razlika pomegu DEVELOPER i CODER
+    5.2. Primer README + slika
+
+6. Da gi pomineme fazite edna po edna (development-lifecycle.txt)
+    6.1. Kaj Analyzing and research phase => so split screen api povik vs Requirement
+    6.2. Kaj Planning Phase => TaskList.md i oni da mi kazuvaat
+
+7. Inicijalen setup da im pustam 
+
+8. ISTO MNOGU BITNO !
+    => napravete ja funkcionalna pa na kraj stilot, dizajnot
+    => na kraj navratete se na kodot i razgledajte go, napravete mal REFACTOR
+
+
+
+

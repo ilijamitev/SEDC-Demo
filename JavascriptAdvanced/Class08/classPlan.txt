@@ -1,0 +1,35 @@
+1. INTRO
+    => generalno teoretski cas !!! ona sto go imame kako primer ke go pomineme prvo i posle teorijata
+    => da sfatime kako nasiot kod se izvrsuva vo skriptata pa da sfatime kako browserot go izvrsuva istoto
+    => znaci prvo ON THE HOOD pa posle toa UNDER THE HOOD
+
+2. Reference types vs Value types (Recap + na tabla STACK i HEAP)
+
+3. Synchronious vs Asynchronius execution
+    - DEBUGGING
+
+4. Callback functions
+    4.1. Already used examples of callbacks
+    4.2. Callback functions vs function as an argument
+
+5. UNDER THE HOOD
+    5.1. Da objasnam od readmeto slikata + so treba drugo
+    5.2. Primerite od kod iskucani kako se izvrsuvaat vo browser
+    5.3. Primer so taa stranata + vo Sources (dev tools)
+
+●	Where and how is javascript executed behind the scenes
+○	Compiled in the browser
+○	One thread (Single threaded) !!!!!!!!!!!!!!!
+○	Asynchronous executing in other languages
+
+- UNDER THE HOOD
+- Javascript and the browser
+- SINGLE THREADED !! - na edno mesto (STACK) se izvrsuva nasiot kod, primer so covek nesto
+- components:
+    1. JavaScript engine
+        1.1 Memory Heap 
+        1.2 Call Stack
+    2. Browser APIs => VGRADENI APIS KOJ MU POMAGAAT NA BROWSEROT, ne kako SWAPI i slicni
+    3. Event (Callback) Queue 
+    4. Event Loop
+

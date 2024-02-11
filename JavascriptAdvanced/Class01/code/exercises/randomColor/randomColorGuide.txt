@@ -1,0 +1,22 @@
+================== REQUIREMENT ==================
+*Create an HTML page
+*On every refresh the page should pick a random color and change the background of the page
+*The RGB values of the color should be shown in the center of the page on every restart
+
+================== STEPS WHEN SOLVING SOME PROBLEM ==================
+1) Read the requirement
+2) Break it into smaller logical pieces
+3) Implement them separately (one by one)
+
+================== PROGRAMMER'S APPROACH ==================
+1. Create an HTML page
+    1.1. I would definetely need a .js file too
+
+2. On every refresh the page should pick a random color and change the background of the page
+    2.1. Handle page refresh
+    2.2. Pick (Generate) random color
+    2.3. Change the background
+
+3. The RGB values of the color should be shown in the center of the page on every restart
+    3.1. Center a div (:D) or heading element in the middle of the page 
+    3.2. Add text to it with the value of the RGB ex. rgb(233, 144, 100)

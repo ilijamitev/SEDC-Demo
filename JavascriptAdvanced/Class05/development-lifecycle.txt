@@ -1,0 +1,40 @@
+#################################
+1. Analyzing and research phase 
+=> read the requirement !!!
+=> technology stack
+=> use of libraries (BOOTSTRAP)
+=> API*
+=> read documentations
+
+*** OTVORI SO SPLIT SCREEN BARANJE/API VO BROWSER ***
+
+
+#################################
+2. Planning and discussion
+=> project scope
+=> features
+=> design (style)
+=> creating tasks
+=> We take the whole problem of building the app and create smaller chunks or tasks that we can complete one by one
+=> use of visualization tools (like DRAWIO)
+
+** THE "THREE-STEP" RULE WHEN SOLVING SOME PROBLEM **
+1) Read the requirement
+2) Break it into smaller logical pieces
+3) Implement them separately (one by one)
+
+========== DA GO NAPRAVIME OVA ZAEDNO ==========
+====> SE VRAKJAME NA BARANJETO
+
+
+#################################
+3. Coding phase
+=> implement the planned tasks from the previous phase one by one
+=> NOW IT'S YOUR TURN :) GOOD LUCK :)
+if(question) {
+    ask();
+}
+
+
+#################################
+4. Testing phase

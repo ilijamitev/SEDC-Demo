@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Generator dynamically from inputs
+    </title>
+</head>
+
+<body>
+    <h1>
+        List Generator dynamically from inputs
+    </h1>
+
+    <label for="color">Color:</label>
+    <input type="color" id="color"> <br><br>
+
+    <label for="fontSize">Font Size:</label>
+    <input type="number" min="1" max="300" id="fontSize"> <br><br>
+
+    <label for="items">Items (separated by ','):</label>
+    <input type="text" id="items" placeholder="Enter items"> <br><br>
+
+    <button id="generateListBtn">Generate List</button>
+
+    <div id="listContainer"></div>
+
+    <script src="list-generator-inputs.js"></script>
+</body>
+
+</html>
